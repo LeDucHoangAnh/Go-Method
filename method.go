@@ -10,7 +10,11 @@ type Student struct {
 //func (t Type) method(params) return { //code}
 
 //(t Type) => Receiver
-//1.Value Receiver
+//1.Value Receiver:Không làm thay đổi giá trị field trong struct
+func (s Student) changeName() {
+	s.name = "Mary"
+}
+
 //2.Poiter Receiver
 
 func (s Student) getNameI() string {
@@ -23,4 +27,7 @@ func main() {
 	name := student.getNameI()
 
 	fmt.Println(name)
+
+	student.changeName()
+	fmt.Println(student.name)
 }
